@@ -14,7 +14,7 @@ return new Promise ((resolve, reject) => {
   setTimeout(() => {
   
    if (canProcess) {
-      resolve(transaction.id, delay);
+      resolve({id: transaction.id, time: delay});
     } 
      reject(transaction.id);
     
@@ -24,7 +24,7 @@ return new Promise ((resolve, reject) => {
   
 };
 
-const logSuccess = (id, time) => {
+const logSuccess = ({id, time}) => {
   console.log(`Transaction ${id} processed in ${time}ms`);
 };
 
